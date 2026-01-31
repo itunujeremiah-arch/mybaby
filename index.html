@@ -1,120 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Kofoworola ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Kofoworola ❤️</title>
 
-    <style>
-        * { box-sizing: border-box; }
+  <style>
+    * { box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            padding: 20px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+      padding: 20px;
+    }
 
-        .card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 40px 25px;
-            max-width: 360px;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-        }
+    /* Card entrance animation */
+    .card {
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
+      border-radius: 26px;
+      padding: 42px 26px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: floatIn 0.9s ease forwards;
+      opacity: 0;
+    }
 
-        h1 { font-size: 32px; margin-bottom: 10px; }
-        h2 { font-size: 20px; font-weight: normal; margin-bottom: 30px; }
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .buttons { position: relative; height: 140px; }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-        .btn {
-            background: #fff;
-            color: #ff5e78;
-            border: none;
-            padding: 14px 30px;
-            font-size: 18px;
-            border-radius: 30px;
-            cursor: pointer;
-        }
+    h2 {
+      font-size: 20px;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
 
-        #noBtn {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 70px;
-        }
+    .buttons {
+      position: relative;
+      height: 140px;
+    }
 
-        .heart {
-            position: absolute;
-            bottom: -20px;
-            font-size: 20px;
-            animation: floatUp 6s linear infinite;
-            opacity: 0.8;
-        }
+    .btn {
+      background: #fff;
+      color: #ff5e78;
+      border: none;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 0; }
-            10% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
-        }
-    </style>
+    /* Soft breathing glow */
+    #yesBtn {
+      animation: glow 2.8s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 0px rgba(255,255,255,0.0);
+      }
+      50% {
+        box-shadow: 0 0 18px rgba(255,255,255,0.55);
+      }
+    }
+
+    #noBtn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 70px;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.4); opacity: 0; }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="card">
-    <h1>Kofoworola 💖</h1>
-    <h2>Will you be my Valentine?</h2>
+  <h1>Kofoworola 💖</h1>
+  <h2>Will you be my Valentine?</h2>
 
-    <div class="buttons">
-        <button class="btn" onclick="yes()">YES 💕</button>
-        <button class="btn" id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">No 😒</button>
-    </div>
+  <div class="buttons">
+    <button class="btn" id="yesBtn" onclick="yes()">YES 💕</button>
+    <button class="btn" id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">No 😒</button>
+  </div>
 </div>
 
 <script>
+/* YES screen – line by line reveal */
 function yes() {
-    document.body.innerHTML = `
-        <div style="min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;">
-            <div>
-                <h1>Yayyy 🥰</h1>
-                <p style="font-size:22px;">I knew it had to be you, Kofoworola ❤️</p>
-                <p>This Valentine feels right with you 💐</p>
-                <p style="margin-top:20px;opacity:0.9;">— from the guy that loves you 🤍</p>
-            </div>
-        </div>
-    `;
+  document.body.innerHTML = `
+    <div style="
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      color:white;
+    ">
+      <div id="msg">
+        <h1 style="opacity:0;">Yayyy 🥰</h1>
+        <p style="font-size:22px;opacity:0;">I knew it had to be you, Kofoworola ❤️</p>
+        <p style="opacity:0;">This Valentine feels right with you 💐</p>
+        <p style="margin-top:20px;opacity:0;">
+          — from the guy that loves you 🤍
+        </p>
+      </div>
+    </div>
+  `;
+
+  const lines = document.querySelectorAll("#msg > *");
+  lines.forEach((el, i) => {
+    setTimeout(() => {
+      el.style.transition = "opacity 0.6s ease";
+      el.style.opacity = 1;
+    }, 600 * i);
+  });
 }
 
+/* Runaway No button */
 function runAway() {
-    const btn = document.getElementById("noBtn");
-    const card = document.querySelector(".card");
-    btn.style.left = Math.random() * (card.offsetWidth - btn.offsetWidth) + "px";
-    btn.style.top = Math.random() * (card.offsetHeight - btn.offsetHeight) + "px";
+  const btn = document.getElementById("noBtn");
+  const card = document.querySelector(".card");
+  const maxX = card.offsetWidth - btn.offsetWidth;
+  const maxY = card.offsetHeight - btn.offsetHeight;
+  btn.style.left = Math.random() * maxX + "px";
+  btn.style.top  = Math.random() * maxY + "px";
 }
 
+/* Floating hearts generator */
 function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 7000);
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
 }
-
-setInterval(createHeart, 500);
+setInterval(createHeart, 550);
 </script>
 
 </body>
